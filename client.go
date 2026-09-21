@@ -24,7 +24,7 @@ var defaultRetryBaseDelay = 200 * time.Millisecond
 type Question struct {
 	Type         string            `json:"type"`
 	Instructions string            `json:"instructions"`
-	Criteria     map[string]string `json:"criteria"`
+	Criteria     map[string]string `json:"criteria,omitempty"`
 }
 
 // Answer holds the result of one Question. Only the fields matching
