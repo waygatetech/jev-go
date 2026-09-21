@@ -22,9 +22,9 @@ var defaultRetryBaseDelay = 200 * time.Millisecond
 
 // Question is a single semantic judgment Jev is asked to make.
 type Question struct {
-	Type         string            `json:"type"`
-	Instructions string            `json:"instructions"`
-	Criteria     map[string]string `json:"criteria,omitempty"`
+	Type         string `json:"type"`
+	Instructions string `json:"instructions"`
+	Criteria     any    `json:"criteria,omitempty"`
 }
 
 // Answer holds the result of one Question. Only the fields matching
