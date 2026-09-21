@@ -131,10 +131,10 @@ func (c *Client) Evaluate(ctx context.Context, req Request) (Response, error) {
 				}
 				continue
 			}
-			return response, fmt.Errorf("Jev HTTP %d after %d attempts", resp.StatusCode, maxAttempts)
+			return response, fmt.Errorf("Jev HTTP %d after %d attempts: %s", resp.StatusCode, maxAttempts, data)
 		}
 		if resp.StatusCode < 200 || resp.StatusCode >= 300 {
-			return response, fmt.Errorf("Jev HTTP %d", resp.StatusCode)
+			return response, fmt.Errorf("Jev HTTP %d: %s", resp.StatusCode, data)
 		}
 		if err := json.Unmarshal(data, &response); err != nil {
 			return response, fmt.Errorf("decode Jev response: %w", err)
